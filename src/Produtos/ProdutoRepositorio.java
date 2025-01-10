@@ -46,7 +46,7 @@ public class ProdutoRepositorio {
     public void listarProdutosPorNome() {
         produtos.sort(compararPorNome);
         for (Produto produto : produtos) {
-            System.out.println(produto.getNome() + " - R$ " + produto.getPreco());
+            System.out.println(produto);
         }
     }
 
@@ -59,7 +59,7 @@ public class ProdutoRepositorio {
     public void listarProdutosPorPreco() {
         produtos.sort(compararPorPreco);
         for (Produto produto : produtos) {
-            System.out.println(produto.getNome() + " - R$ " + produto.getPreco());
+            System.out.println(produto);
         }
     }
 
@@ -71,7 +71,7 @@ public class ProdutoRepositorio {
         for (Produto produto : produtos) {
             if (produto.getNome().equalsIgnoreCase(nomeBuscado)) {
                 produtoEncontrado = true;
-                System.out.println(produto.getNome() + " - R$ " + produto.getPreco());
+                System.out.println(produto);
             }
         }
         if (!produtoEncontrado) {
