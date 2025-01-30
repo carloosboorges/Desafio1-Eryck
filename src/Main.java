@@ -21,22 +21,23 @@ public class Main {
         produtoRepositorio.cadastrarProduto(p5);
         produtoRepositorio.cadastrarProduto(p6);
 
-        System.out.println("Produtos listados!\n");
+        //System.out.println("Produtos listados!\n");
 
-        produtoRepositorio.listarProdutos();
+        //produtoRepositorio.listarProdutos();
 
-        boolean resultado = produtoRepositorio.removerProdutoPorCodigo(2);
+        //boolean resultado = produtoRepositorio.removerProdutoPorCodigo(4);
        // boolean resultado2 = produtoRepositorio.removerProdutoPorCodigo(5);
 
         System.out.println("");
         System.out.println("Produtos listados por nome\n");
         produtoRepositorio.listarProdutosPorNome();
-        System.out.println("");
-        System.out.println("Produtos listado por preços \n");
-        produtoRepositorio.listarProdutosPorPreco();
-        System.out.println("");
+        //System.out.println("");
+        //System.out.println("Produtos listado por preços \n");
+        //produtoRepositorio.listarProdutosPorPreco();
+        //System.out.println("");
 
-        produtoRepositorio.buscarNaLista();
+        //produtoRepositorio.buscarNaLista();
+        produtoRepositorio.listarProdutosDisponiveis();
 
 
     }

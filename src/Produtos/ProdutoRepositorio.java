@@ -1,5 +1,6 @@
 package Produtos;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -27,7 +28,6 @@ public class ProdutoRepositorio {
                 System.out.println("");
                 System.out.println("Produto removido com sucesso! \n");
 
-                listarProdutos();
                 return true;
             }
         }
@@ -77,5 +77,36 @@ public class ProdutoRepositorio {
         if (!produtoEncontrado) {
             System.out.println(nomeBuscado + " Produto não encontrado");
         }
+    }
+
+    public void listarProdutosDisponiveis() {
+        boolean produtoEncontrado = false;
+        System.out.println("Produtos Disponiveis: \n");
+        for (Produto produto : produtos) {
+
+            if (produto.isDispnivel()) {
+                System.out.println(produto);
+                produtoEncontrado = true;
+                break;
+            }
+        }
+        if (!produtoEncontrado) {
+            System.out.println("Nenhum produto disponivel.");
+        }
+    }
+
+    public void buscarNaListaStream() {
+        System.out.println("Digite o nome do produto");
+        String nomeBuscado = leitura.nextLine().trim();
+
+        produtos.stream()
+                .filter(produto -> produto.getNome().equalsIgnoreCase(nomeBuscado))
+                .findFirst()
+                .ifPresentOrElse(
+                        System.out::println,
+                () -> System.out.println(nomeBuscado + " Produto não encontrado.")
+        );
+
+
     }
 }
