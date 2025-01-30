@@ -35,32 +35,18 @@ public class ProdutoRepositorio {
     }
 
 
-    Comparator<Produto> compararPorNome = new Comparator<Produto>() {
-
-        @Override
-        public int compare(Produto p1, Produto p2) {
-            return p1.getNome().compareTo(p2.getNome());
-        }
-    };
-
     public void listarProdutosPorNome() {
-        produtos.sort(compararPorNome);
-        for (Produto produto : produtos) {
-            System.out.println(produto);
-        }
+        produtos.stream()
+                .sorted(Comparator.comparing(Produto::getNome))
+                .forEach(System.out::println);
+
     }
 
-    Comparator<Produto> compararPorPreco = new Comparator<Produto>() {
-        public int compare(Produto p1, Produto p2) {
-            return Double.compare(p1.getPreco(), p2.getPreco());
-        }
-    };
 
     public void listarProdutosPorPreco() {
-        produtos.sort(compararPorPreco);
-        for (Produto produto : produtos) {
-            System.out.println(produto);
-        }
+        produtos.stream()
+                .sorted(Comparator.comparing(Produto::getPreco))
+                .forEach(System.out::println);
     }
 
     public void buscarNaLista() {
@@ -104,8 +90,8 @@ public class ProdutoRepositorio {
                 .findFirst()
                 .ifPresentOrElse(
                         System.out::println,
-                () -> System.out.println(nomeBuscado + " Produto não encontrado.")
-        );
+                        () -> System.out.println(nomeBuscado + " Produto não encontrado.")
+                );
 
 
     }
