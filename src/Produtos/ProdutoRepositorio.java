@@ -80,18 +80,35 @@ public class ProdutoRepositorio {
             System.out.println("Nenhum produto disponivel.");
         }
     }
+    public void listarProdutosDisponiveis2(){
+
+        System.out.println("Produtos Disponiveis: \n");
+
+        List<Produto> produtosDisponiveis = produtos.stream()
+                .filter(produto -> produto.isDispnivel())
+                .toList();
+
+        if(produtosDisponiveis.isEmpty()) {
+            System.out.println("Nenhum produto disponivel.");
+        }else{
+            produtosDisponiveis.forEach(System.out::println);
+        }
+
+    }
 
     public void buscarNaListaStream() {
         System.out.println("Digite o nome do produto");
         String nomeBuscado = leitura.nextLine().trim();
 
-        produtos.stream()
-                .filter(produto -> produto.getNome().equalsIgnoreCase(nomeBuscado))
-                .findFirst()
-                .ifPresentOrElse(
-                        System.out::println,
-                        () -> System.out.println(nomeBuscado + " Produto não encontrado.")
-                );
+        List<Produto> produtosEncontrados = produtos.stream()
+                .filter(produto -> produto.getNome().toLowerCase().contains(nomeBuscado.toLowerCase()))
+                .toList();
+
+        if(produtosEncontrados.isEmpty()){
+            System.out.println("Nenhum produto encontrado com: " + nomeBuscado);
+        }else{
+            produtosEncontrados.forEach(System.out::println);
+        }
 
 
     }

@@ -7,9 +7,9 @@ public class Main {
     public static void main(String[] args) {
 
         ProdutoRepositorio produtoRepositorio = new ProdutoRepositorio();
-        Produto p1 = new Produto(1, "Celular", 1500, true);
-        Produto p2 = new Produto(2, "Tablet", 500, true);
-        Produto p3 = new Produto(3, "Mouse", 350, false);
+        Produto p1 = new Produto(1, "Arroz Branco", 1500, true);
+        Produto p2 = new Produto(2, "Arroz Preto", 500, true);
+        Produto p3 = new Produto(3, "Arroz Verde", 350, false);
         Produto p4 = new Produto(4, "Teclado", 550, true);
         Produto p5 = new Produto(5, "Microfone", 250, true);
         Produto p6 = new Produto(6, "Webcam", 450, true);
@@ -37,7 +37,9 @@ public class Main {
         //System.out.println("");
 
         //produtoRepositorio.buscarNaLista();
-        produtoRepositorio.listarProdutosDisponiveis();
+        //produtoRepositorio.listarProdutosDisponiveis();
+        //produtoRepositorio.buscarNaListaStream();
+        produtoRepositorio.listarProdutosDisponiveis2();
 
 
     }
