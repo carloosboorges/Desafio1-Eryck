@@ -64,7 +64,7 @@ public class ProdutoRepositorio {
             System.out.println(nomeBuscado + " Produto não encontrado");
         }
     }
-
+// Não apaguei esse metodo pra eu ver as duas formas que usei.
     public void listarProdutosDisponiveis() {
         boolean produtoEncontrado = false;
         System.out.println("Produtos Disponiveis: \n");
@@ -81,7 +81,6 @@ public class ProdutoRepositorio {
         }
     }
     public void listarProdutosDisponiveis2(){
-
         System.out.println("Produtos Disponiveis: \n");
 
         List<Produto> produtosDisponiveis = produtos.stream()
